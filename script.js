@@ -1,7 +1,6 @@
-// التفاعل عند الضغط على أزرار الشراء أو التفاصيل
 document.addEventListener('DOMContentLoaded', () => {
     
-    // ربط أزرار الشراء والتفاصيل للتفاعل
+    // التفاعل عند الضغط على أزرار المنتجات
     const cardButtons = document.querySelectorAll('.btn-card');
     
     cardButtons.forEach((button) => {
@@ -9,22 +8,30 @@ document.addEventListener('DOMContentLoaded', () => {
             const cardTitle = e.target.parentElement.querySelector('h3').innerText;
             const cardPrice = e.target.parentElement.querySelector('.price').innerText;
             
-            alert(`لقد اخترت: ${cardTitle}\nالسعر: ${cardPrice}\n\nسيتم توجيهك قريباً لطلب المنتج!`);
+            alert(`شكراً لاختيارك منصة تراست كارد!\n\nالمنتج: ${cardTitle}\nالسعر: ${cardPrice}\n\nسيتم إضافة خاصية الدفع والشراء المباشر قريباً.`);
         });
     });
 
-    // تفاعل زر البحث
-    const searchBtn = document.querySelector('.btn-search');
-    const searchInput = document.querySelector('.search-box input');
+    // التفاعل عند البحث
+    const searchBtn = document.getElementById('searchBtn');
+    const searchInput = document.getElementById('searchInput');
 
     if (searchBtn && searchInput) {
         searchBtn.addEventListener('click', () => {
             const query = searchInput.value.trim();
             if (query !== "") {
-                alert(`جاري البحث عن: "${query}"...`);
+                alert(`جاري البحث في تراست كارد عن: "${query}"...`);
             } else {
-                alert("يرجى كتابة كلمة للبحث عنها!");
+                alert("يرجى كتابة كلمة للبحث عنها أولاً!");
             }
+        });
+    }
+
+    // زر إضافة إعلان
+    const addBtn = document.querySelector('.btn-primary');
+    if (addBtn) {
+        addBtn.addEventListener('click', () => {
+            alert("ميزة إضافة الإعلانات للزوار قيد التطوير وستعمل قريباً!");
         });
     }
 });
